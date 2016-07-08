@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SimpleList Example</title>
+    <style>
+        ul{list-style: none;}
+        ul li{
+            display: block;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="list"></div>
+<script src="src/SimpleList.js"></script>
+<script>
+    var oData = [{
+            name: 'test1',
+            age: 15
+        }, {
+            name: 'test2',
+            age: 20
+        }, {
+            name: 'test3',
+            age: 25
+        }, {
+            name: 'test4',
+            age: 30
+        }, {
+            name: 'test5',
+            age: 35
+        },{
+            name: 'test6',
+            age: 15
+        }, {
+            name: 'test7',
+            age: 20
+        }, {
+            name: 'test8',
+            age: 25
+        }, {
+            name: 'test9',
+            age: 30
+        }, {
+            name: 'test0',
+            age: 35
+        }
+    ];
+    var oList = new SimpleList({
+        target: document.getElementById('list'),
+        data: oData,
+        item: function(nIndex, oData){
+            return 'Name：' + oData.name + ' & Age:' + oData.age + '.';
+        },
+        isEndless: true,
+        onReachBottom: function () {
+            console.log('到达底部');
+            this.update(oData);
+        }
+    });
+
+</script>
+</body>
+</html>
