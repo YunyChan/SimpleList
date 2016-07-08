@@ -100,7 +100,7 @@
     }
 
     function fOnScroll(oEvent) {
-        var oHtml = document.documentElement;
+        var oHtml = oDoc.documentElement;
         if(this.target) {
             var oTargetRect = this.target.getBoundingClientRect();
 

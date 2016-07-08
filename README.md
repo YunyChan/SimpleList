@@ -21,24 +21,19 @@
 <div id="list"></div>
 <script src="SimpleList.js"></script>
 <script>
-    var oData = [
-        {
+    var oData = [{
             name: 'test1',
             age: 15
-        },
-        {
+        }, {
             name: 'test2',
             age: 20
-        },
-        {
+        }, {
             name: 'test3',
             age: 25
-        },
-        {
+        }, {
             name: 'test4',
             age: 30
-        },
-        {
+        }, {
             name: 'test5',
             age: 35
         }
