@@ -69,8 +69,8 @@
 
     function fRenderList() {
         this.wrap = oDoc.createElement('ul');
-        this.update(this.config.data);
         this.target.appendChild(this.wrap);
+        this.update(this.config.data);
     }
 
     function fCreateItems(aData) {
