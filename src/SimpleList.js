@@ -22,6 +22,7 @@
     var SimpleList = fConstructor;
     // 静态变量
     SimpleList.prototype.isBoundScroll = false;
+    SimpleList.prototype.instances = [];
     // 静态方法
     SimpleList.prototype.init = fInit;
     SimpleList.prototype.initEvents = fInitEvents;
@@ -30,8 +31,9 @@
     SimpleList.prototype.createItems = fCreateItems;
     SimpleList.prototype.update = fUpdate;
     SimpleList.prototype.renderLoading = fRenderLoading;
-
     SimpleList.prototype.onScroll = fOnScroll;
+    SimpleList.prototype.show = fShow;
+    SimpleList.prototype.hide = fHide;
 
     function fConstructor(oConf){
         this.config =  oConf = oConf || {};
@@ -42,14 +44,17 @@
         this.isShowLoading = !!oConf.isShowLoading;
         this.loadingTemplate = oConf.loading || '';
         this.onNotEnoughHeight = oConf.onNotEnoughHeight || null;
-
+        this.isShow = SimpleList.prototype.instances.length == 0;
+        
         this.init();
+        
         return this;
     }
 
     function fInit(){
         this.render();
         this.initEvents();
+        SimpleList.prototype.instances.push(this);
     }
 
     function fInitEvents() {
@@ -57,7 +62,12 @@
         if(this.isEndless && !this.isBoundScroll){
             SimpleList.prototype.isBoundScroll = true;
             Helper.listenEvent(oWin, 'scroll', function (oEvent) {
-                that.onScroll(oEvent);
+                var oInstances = SimpleList.prototype.instances;
+                for(var cnt = 0, length = oInstances.length; cnt < length; cnt ++){
+                    if(oInstances[cnt].isShow){
+                        oInstances[cnt].onScroll(oEvent);
+                    }
+                }
             });
         }
     }
@@ -115,6 +125,14 @@
         }else{
             this.onNotEnoughHeight && this.onNotEnoughHeight();
         }
+    }
+
+    function fShow() {
+        this.isShow = true;
+    }
+
+    function fHide() {
+        this.isShow = false;
     }
 
     if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
