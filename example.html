@@ -57,6 +57,9 @@
         onReachBottom: function () {
             console.log('到达底部');
             this.update(oData);
+        },
+        onNotEnoughHeight: function () {
+            console.log('页面高度没有填满浏览器视窗');
         }
     });
 

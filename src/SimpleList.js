@@ -41,6 +41,7 @@
         this.onReachBottom = oConf.onReachBottom || null;
         this.isShowLoading = !!oConf.isShowLoading;
         this.loadingTemplate = oConf.loading || '';
+        this.onNotEnoughHeight = oConf.onNotEnoughHeight || null;
 
         this.init();
         return this;
@@ -84,6 +85,7 @@
     function fUpdate(aData) {
         var sBaseHtml = this.isEndless ? this.wrap.innerHTML : '';
         this.wrap.innerHTML = sBaseHtml + this.createItems(aData);
+        this.onScroll();
     }
 
     function fRenderLoading() {
@@ -101,9 +103,8 @@
 
     function fOnScroll(oEvent) {
         var oHtml = oDoc.documentElement;
-        if(this.target) {
+        if(oHtml.getBoundingClientRect().height > oHtml.clientHeight){
             var oTargetRect = this.target.getBoundingClientRect();
-
             var nTargetBottom = Math.floor(oTargetRect.bottom);
             // console.log('List bottom: ' + nTargetBottom + ' | Document height: ' + oHtml.clientHeight);
             var isReachBottom = nTargetBottom <= oHtml.clientHeight;
@@ -111,6 +112,8 @@
             if (isReachBottom && oTargetRect.height) {
                 this.onReachBottom && this.onReachBottom();
             }
+        }else{
+            this.onNotEnoughHeight && this.onNotEnoughHeight();
         }
     }
 
