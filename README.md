@@ -56,20 +56,20 @@
 
 下面是组件的配置参数说明：
 
-+ `target` - __必须__, 需要插入列表组件的dom元素
-+ `data` - __必须__, 数据源，数组形式
-+ `item` - _必须_, 列表每项的模板
-+ `isEndless` - _default: false_, 是否使用无限上拉加载功能
-+ `onReachBottom` - _default: null_, 列表到达底部时执行的回调方法
-+ `onNotEnoughHeight` - _default: null_, 列表总高度没有填满浏览器视窗时执行的回调方法
-+ `isShowLoading` - _default: false_, 是否显示底部“正在加载”提示，只有开启无限上拉加载功能的时候才有效
-+ `loading` - _default: `<p>正在加载中，请稍后</p>`_, 底部“正在加载”提示内容模板
+* `target` - __必须__, 需要插入列表组件的dom元素
+* `data` - __必须__, 数据源，数组形式
+* `item` - _必须_, 列表每项的模板
+* `isEndless` - _default: false_, 是否使用无限上拉加载功能
+* `onReachBottom` - _default: null_, 列表到达底部时执行的回调方法
+* `onNotEnoughHeight` - _default: null_, 列表总高度没有填满浏览器视窗时执行的回调方法
+* `isShowLoading` - _default: false_, 是否显示底部“正在加载”提示，只有开启无限上拉加载功能的时候才有效
+* `loading` - _default: `<p>正在加载中，请稍后</p>`_, 底部“正在加载”提示内容模板
 
 APIs
-+ `update(Array)` - 更新列表数据，对于无限加载时，该方法是在原有数据基础上叠加
-++ `Array` - 更新数据列表
-+ `hide()` - 当列表不显示时应要调用此方法，列表才会不响应绑定的全局滚动事件
-+ `show()` - 当列表恢复显示时，应调用此方法，从而让列表响应滚动事件
+* `update(Array)` - 更新列表数据，对于无限加载时，该方法是在原有数据基础上叠加
+    * `Array` - 更新数据列表
+* `hide()` - 当列表不显示时应要调用此方法，列表才会不响应绑定的全局滚动事件
+* `show()` - 当列表恢复显示时，应调用此方法，从而让列表响应滚动事件
 
 ## 作者 ##
 
