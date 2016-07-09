@@ -93,9 +93,11 @@
     }
     
     function fUpdate(aData) {
-        var sBaseHtml = this.isEndless ? this.wrap.innerHTML : '';
-        this.wrap.innerHTML = sBaseHtml + this.createItems(aData);
-        this.onScroll();
+        if(aData.length > 0){
+            var sBaseHtml = this.isEndless ? this.wrap.innerHTML : '';
+            this.wrap.innerHTML = sBaseHtml + this.createItems(aData);
+            this.onScroll();
+        }
     }
 
     function fRenderLoading() {
