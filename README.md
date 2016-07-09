@@ -61,6 +61,7 @@
 + `item` - _必须_, 列表每项的模板
 + `isEndless` - _default: false_, 是否使用无限上拉加载功能
 + `onReachBottom` - _default: null_, 列表到达底部时执行的回调方法
++ `onNotEnoughHeight` - _default: null_, 列表总高度没有填满浏览器视窗时执行的回调方法
 + `isShowLoading` - _default: false_, 是否显示底部“正在加载”提示，只有开启无限上拉加载功能的时候才有效
 + `loading` - _default: `<p>正在加载中，请稍后</p>`_, 底部“正在加载”提示内容模板
 
