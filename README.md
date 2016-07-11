@@ -1,4 +1,4 @@
-# SimpleList [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/YunyChan/SimpleList/blob/master/LICENSE) #
+# SimpleList [![license](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/YunyChan/SimpleList/blob/master/LICENSE) #
 
 一个不依赖任何第三方框架库的支持无限上拉加载的列表组件
 
