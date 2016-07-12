@@ -93,7 +93,7 @@
     }
     
     function fUpdate(aData) {
-        if(aData.length > 0){
+        if(aData && aData.length > 0){
             var sBaseHtml = this.isEndless ? this.wrap.innerHTML : '';
             this.wrap.innerHTML = sBaseHtml + this.createItems(aData);
             this.onScroll();
