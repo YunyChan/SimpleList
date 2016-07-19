@@ -45,6 +45,7 @@
         this.loadingTemplate = oConf.loading || '';
         this.onNotEnoughHeight = oConf.onNotEnoughHeight || null;
         this.isShow = SimpleList.prototype.instances.length == 0;
+        this.data = [];
         
         this.init();
         
@@ -97,6 +98,11 @@
             var sBaseHtml = this.isEndless ? this.wrap.innerHTML : '';
             this.wrap.innerHTML = sBaseHtml + this.createItems(aData);
             this.onScroll();
+            if(this.isEndless){
+                this.data.concat(aData);
+            }else{
+                this.data = aData;
+            }
         }
     }
 
@@ -131,10 +137,12 @@
 
     function fShow() {
         this.isShow = true;
+        this.target.style.display = '';
     }
 
     function fHide() {
         this.isShow = false;
+        this.target.style.display = 'none';
     }
 
     if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
